@@ -3,7 +3,7 @@ var program = require('commander');
 var path = require('path');
 var pkg = require('../package');
 require('babel/register')({
-  ignore: /nsfilter\/node_modules/
+  ignore: /nsfilter\/node_modules/z
 });
 
 program
@@ -12,4 +12,4 @@ program
   .parse(process.argv);
 
 
-require('../lib')(program.config);
+require('../lib')(path.resolve(process.cwd(), program.config));
