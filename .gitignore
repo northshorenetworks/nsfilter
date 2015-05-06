@@ -1,0 +1,4 @@
+client/dist
+client/build
+node_modules
+nsfilter.json

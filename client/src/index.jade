@@ -1,0 +1,15 @@
+doctype html
+html(ng-controller='AppController as app')
+  head
+    meta(charset='utf-8')
+    title NSFilter
+    link(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400')
+    link(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,700')
+    link(rel='stylesheet' href='/app.css')
+  body
+    .toolbar
+      .brand NSFilter
+
+    .container(ng-viewport)
+    script(src='/socket.io/socket.io.js')
+    script(src='/app.js')

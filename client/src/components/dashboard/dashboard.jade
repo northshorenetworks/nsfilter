@@ -1,0 +1,39 @@
+h2 DNS Requests
+p
+  strong Average Duration: 
+  span(ng-bind='dashboard.avgDuration()')
+table.table
+  thead
+    tr
+      th ID
+      th IP Address
+      th Record Type
+      th Domain
+      th Duration
+      th Answers
+  tbody
+    tr(ng-repeat='query in dashboard.dnsQueries | limitTo: -20')
+      td(ng-bind='query.id | limitTo: 6')
+      td(ng-bind='query.address.address')
+      td(ng-bind='query.question.type | dnsTypeToName')
+      td(ng-bind='query.question.name')
+      td(ng-bind='query.duration | hrtime')
+      td(ng-bind='query.answers.length')
+
+table.table
+  thead
+    tr
+      th ID
+      //- th IP Address
+      //- th Record Type
+      th Address
+      th Duration
+      //- th Answers
+  tbody
+    tr(ng-repeat='query in dashboard.httpQueries | limitTo: -20')
+      td(ng-bind='query.id | limitTo: 6')
+      //- td(ng-bind='query.address.address')
+      //- td(ng-bind='query.address')
+      td(ng-bind='query.address')
+      td(ng-bind='query.duration | hrtime')
+      //- td(ng-bind='query.answers.length')

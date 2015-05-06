@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+var program = require('commander');
+var path = require('path');
+var pkg = require('../package');
+require('babel/register');
+
+program
+  .version(pkg.version)
+  .option('-c, --config [file]', 'point to configuration path')
+  .parse(process.argv);
+
+
+require('../lib')(program.config);
