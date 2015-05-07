@@ -11,5 +11,8 @@ program
   .option('-c, --config [file]', 'point to configuration path')
   .parse(process.argv);
 
-
-require('../lib')(path.resolve(process.cwd(), program.config));
+var configPath;
+if (program.config) {
+  configPath = path.resolve(process.cwd(), program.config);
+}
+require('../lib')(configPath);
