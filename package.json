@@ -25,6 +25,7 @@
     "babel": "^5.0.4",
     "co": "^4.5.1",
     "commander": "^2.8.1",
+    "debug": "^2.1.3",
     "eventemitter3": "^0.1.6",
     "express": "^4.12.3",
     "lodash": "^3.8.0",

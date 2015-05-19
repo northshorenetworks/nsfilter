@@ -24,16 +24,17 @@ gulp.task('styles', styles);
 gulp.task('min:styles', ['styles'], minStyles);
 gulp.task('scripts', scripts);
 gulp.task('min:scripts', ['scripts'], minScripts);
-gulp.task('nodemon', nodemon);
+gulp.task('nodemon', ['default'], nodemon);
 gulp.task('default', ['views', 'styles', 'scripts']);
-gulp.task('watch', ['default', 'nodemon'], watch);
+gulp.task('watch', ['nodemon'], watch);
 gulp.task('build', ['min:views', 'min:styles', 'min:scripts']);
 
 function nodemon(done) {
   ndmn({
     script: 'index.js',
     ext: 'js',
-    watch: './lib'
+    watch: './lib',
+    env: { DEBUG: '*,-express:*,-send,-socket.io:*' }
   }).once('start', function () {
     setTimeout(done, 200);
   });
@@ -98,7 +99,8 @@ function watch() {
     port: 8000,
     proxy: cnfg.dev.host,
     notify: false,
-    open: false
+    open: false,
+    logLevel: 'warn'
   });
 
   gulp.watch('./client/src/**/*.js', ['scripts']);
