@@ -32,6 +32,8 @@
     "native-dns": "^0.7.0",
     "native-dns-packet": "^0.1.1",
     "pretty-hrtime": "^1.0.0",
+    "proxy-dns": "0.0.1",
+    "proxy-http": "0.0.1",
     "socket.io": "^1.3.5",
     "uuid": "^2.0.1"
   },
