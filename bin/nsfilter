@@ -1,10 +1,16 @@
 #!/usr/bin/env node
+'use strict';
+
 var program = require('commander');
 var path = require('path');
 var pkg = require('../package');
-require('babel/register')({
-  ignore: /nsfilter\/node_modules/
-});
+var iojs = require('is-iojs');
+
+if (!iojs) {
+  require('babel/register')({
+    only: /(nsfilter\/lib|nsfilter\/node_modules\/(?:proxy-dns|proxy-http(?!.*pem)|koa))/
+  });
+}
 
 program
   .version(pkg.version)
